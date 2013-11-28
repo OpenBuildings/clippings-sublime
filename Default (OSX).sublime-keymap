@@ -6,6 +6,6 @@
         "keys": ["ctrl+alt+x"], "command": "test_run"
     },
     {
-        "keys": ["ctrl+alt+z"], "command": "test_run_all"
+        "keys": ["ctrl+alt+a"], "command": "test_run_all"
     }
 ]  
