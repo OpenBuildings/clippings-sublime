@@ -1,5 +1,11 @@
 [  
     {   
-        "keys": ["ctrl+alt+x"], "command": "clippings_checkout_package"   
-    }  
+        "keys": ["ctrl+alt+s"], "command": "test_switch"
+    },
+    {
+        "keys": ["ctrl+alt+x"], "command": "test_run"
+    },
+    {
+        "keys": ["ctrl+alt+z"], "command": "test_run_all"
+    }
 ]  

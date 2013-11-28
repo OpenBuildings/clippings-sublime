@@ -1,6 +1,6 @@
 import sublime, sublime_plugin, copy
 
-class ToggleTestCommand(sublime_plugin.TextCommand):
+class TestSwitchCommand(sublime_plugin.TextCommand):
 
 	def on_picked(self, picked):
 		sublime.status_message(picked)
@@ -24,9 +24,11 @@ class ToggleTestCommand(sublime_plugin.TextCommand):
 		if first_symbol[1][-4:] == 'Test':
 			locations = window.lookup_symbol_in_index(first_symbol[1][:-4])
 		else:
-			locations = window.lookup_symbol_in_index(first_symbol[1] + 'Test')
+			locations = window.lookup_symbol_in_index(first_symbol[1].replace('Kohana_', '') + 'Test')
 
-		if len(locations) == 1:
+		if len(locations) == 0:
+			sublime.error_message('No corresponding file found')
+		elif (len(locations) == 1):
 			window.open_file(locations[0][0])
 		else:
 			names = [l[1] for l in locations]
