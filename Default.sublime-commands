@@ -1,0 +1,5 @@
+[
+    { "caption": "Clippings: Checkout Package", "command": "clippings_checkout_package" },
+    { "caption": "Clippings: Travis CI", "command": "clippings_travis" },
+    { "caption": "Clippings: Toggle Test", "command": "toggle_test" }
+]
