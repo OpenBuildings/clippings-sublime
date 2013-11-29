@@ -3,5 +3,6 @@
     { "caption": "Clippings: Travis CI", "command": "clippings_travis" },
     { "caption": "Clippings: Test Switch", "command": "test_switch" },
     { "caption": "Clippings: Test Run", "command": "test_run" },
-    { "caption": "Clippings: Test Run All", "command": "test_run_all" }
+    { "caption": "Clippings: Test Run All", "command": "test_run_all" },
+    { "caption": "Clippings: Test Run Selected", "command": "test_run_selected" }
 ]
