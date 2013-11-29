@@ -4,8 +4,10 @@ class ClippingsModule:
 
 	directory = ''
 	vagrant_dir = ''
+	view = ''
 
 	def __init__(self, view):
+		self.view = view
 		view_file = view.file_name()
 		folders = view.window().folders()
 		directory = os.path.dirname(view_file)
@@ -21,6 +23,20 @@ class ClippingsModule:
 
 	def relative_path(self, file):
 		return os.path.relpath(file, self.directory)
+
+	def open_class(self, class_to_find):
+		window = self.view.window()
+		locations = window.lookup_symbol_in_index(class_to_find)
+
+		locations = [l for l in locations if l[0].startswith(self.directory)]
+
+		if len(locations) == 0:
+			sublime.error_message('No corresponding file found')
+		elif (len(locations) == 1):
+			window.open_file(locations[0][0])
+		else:
+			names = [l[1] for l in locations]
+			window.show_quick_panel(names, lambda picked: window.open_file(locations[picked][0]))
 
 class ClippingsClass:
 
@@ -46,7 +62,8 @@ class ClippingsClass:
 		self.view_class = first_symbol[1]
 
 	def is_test(self):
-		return self.view_class[1][-4:] != 'Test'
+		return self.view_class[-4:] == 'Test'
 
 	def module(self):
 		return ClippingsModule(self.view)
+
