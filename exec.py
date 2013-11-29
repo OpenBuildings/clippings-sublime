@@ -125,7 +125,7 @@ class AsyncProcess(object):
 class ExecCommand(sublime_plugin.WindowCommand, ProcessListener):
     def run(self, cmd = None, shell_cmd = None, file_regex = "", line_regex = "", working_dir = "",
             encoding = "utf-8", env = {}, quiet = False, kill = False,
-            word_wrap = True, syntax = "Packages/Text/Plain text.tmLanguage",
+            word_wrap = True, syntax = "Packages/Text/Plain text.tmLanguage", color_scheme = "",
             # Catches "path" and "shell"
             **kwargs):
 
@@ -152,6 +152,10 @@ class ExecCommand(sublime_plugin.WindowCommand, ProcessListener):
         self.output_view.settings().set("line_numbers", False)
         self.output_view.settings().set("gutter", False)
         self.output_view.settings().set("scroll_past_end", False)
+
+        if color_scheme:
+            self.output_view.settings().set("color_scheme", color_scheme)
+        
         self.output_view.assign_syntax(syntax)
 
         # Call create_output_panel a second time after assigning the above
