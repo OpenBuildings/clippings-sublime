@@ -1,5 +1,5 @@
-[  
-    {   
+[
+    {
         "keys": ["ctrl+alt+s"], "command": "test_switch"
     },
     {
@@ -11,4 +11,4 @@
     {
         "keys": ["ctrl+alt+z"], "command": "test_run_selected"
     }
-]  
+]

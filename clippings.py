@@ -1,5 +1,10 @@
 import sublime, sublime_plugin, os
 
+__author__ = "Ivan Kerin"
+__copyright__ = "Copyright (c) 2014, Clippings Ltd."
+__license__ = "The BSD 3-Clause License"
+__version__ = "0.1"
+
 class ClippingsModule:
 
 	directory = ''
